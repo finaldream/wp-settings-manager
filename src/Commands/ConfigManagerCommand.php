@@ -246,18 +246,6 @@ class ConfigManagerCommand extends BaseCommand
         $baseConfig = $this->configs['blogs'][$base];
 
         if (!empty($base) && !empty($baseConfig)) {
-            /*$configs['plugins'] = (!empty($configs['plugins'])) ?
-                array_unique(array_merge_recursive($baseConfig['plugins'], $configs['plugins'])) :
-                $baseConfig['plugins'];
-
-            $configs['themes'] = (!empty($configs['themes'])) ?
-                array_replace_recursive($baseConfig['themes'], $configs['themes']) :
-                $baseConfig['themes'];
-
-            $configs['wp_options'] = (!empty($configs['wp_options'])) ?
-                array_replace_recursive($baseConfig['wp_options'], $configs['wp_options']) :
-                $baseConfig['wp_options'];*/
-
             foreach (static::$supportedKeys as $key) {
                 $configs[$key] = (!empty($configs[$key])) ?
                     array_replace_recursive($baseConfig[$key], $configs[$key]) :
