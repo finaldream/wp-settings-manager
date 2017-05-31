@@ -10,8 +10,11 @@ namespace ConfigManager\Core;
 
 use ConfigManager\Templates\DefaultYamlTemplate;
 use Symfony\Component\Yaml\Yaml;
-use WP_CLI\Iterators\Exception;
 
+/**
+ * Class File
+ * @package ConfigManager\Core
+ */
 class File
 {
     protected $path;
@@ -25,17 +28,34 @@ class File
         $this->path = $path;
     }
 
+    /**
+     * @param $path
+     * @return File
+     */
     static function initFromTemplate($path)
     {
         try {
             $newFile = fopen($path, "w");
+
+            if (!$newFile) {
+                throw new \Exception('File open failed.');
+            }
+
             fwrite($newFile, DefaultYamlTemplate::get());
             fclose($newFile);
 
             return new self($path);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             \WP_CLI::error($e->getMessage());
         }
+    }
+
+    /**
+     * @return bool
+     */
+    function exist()
+    {
+        return file_exists($this->path);
     }
 
     /**
@@ -48,6 +68,9 @@ class File
         return is_writable($this->path);
     }
 
+    /**
+     * @return mixed
+     */
     function parse(){
         return Yaml::parse(file_get_contents($this->path));
     }
