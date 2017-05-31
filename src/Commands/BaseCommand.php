@@ -16,7 +16,7 @@ abstract class BaseCommand
     /**
      * @var float
      */
-    protected $version = 1.0;
+    protected static $version;
 
     /**
      * @var string
@@ -115,6 +115,6 @@ abstract class BaseCommand
      */
     protected function checkVersion()
     {
-        return (!empty($this->configs['version'] && ($this->configs['version'] === $this->version)));
+        return (!empty($this->configs['version'] && ($this->configs['version'] === static::$version)));
     }
 }

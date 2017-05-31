@@ -19,6 +19,11 @@ class ConfigManagerCommand extends BaseCommand
 {
 
     /**
+     * @var float
+     */
+    protected static $version = 1.0;
+
+    /**
      * Create new configuration file from template
      *
      * ## OPTIONS
