@@ -9,6 +9,7 @@
 namespace ConfigManager\Core;
 
 use ConfigManager\Templates\DefaultYamlTemplate;
+use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -71,7 +72,11 @@ class File
     /**
      * @return mixed
      */
-    function parse(){
-        return Yaml::parse(file_get_contents($this->path));
+    function parse() {
+        try {
+            return Yaml::parse(file_get_contents($this->path));
+        } catch (ParseException $e) {
+            \WP_CLI::log('Unable to parse the YAML string:' . $e->getMessage());
+        }
     }
 }
