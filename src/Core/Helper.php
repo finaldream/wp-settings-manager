@@ -31,4 +31,13 @@ class Helper
     {
         \WP_CLI::success(\WP_CLI::colorize($message . ' %Y' . $highlight . '%N'));
     }
+
+    /**
+     * @param $message
+     * @param string $highlight
+     */
+    static function logColorize($message, $highlight = '')
+    {
+        \WP_CLI::log(\WP_CLI::colorize($message . ' %Y' . $highlight . '%N'));
+    }
 }
