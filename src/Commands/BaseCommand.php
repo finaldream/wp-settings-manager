@@ -37,7 +37,8 @@ abstract class BaseCommand
      * @var array
      */
     protected $flags = [
-        'force' => false
+        'force' => false,
+        'override-network-plugins' => true
     ];
 
     /**
@@ -90,22 +91,27 @@ abstract class BaseCommand
         return (!empty($this->flags[$key])) ? $this->flags[$key] : $default;
     }
 
+    protected function validateConfigs()
+    {
+        if (empty($this->configs)) {
+            Helper::errorColorize('Could not load configuration from:', $this->filePath);
+        }
+
+        if(!$this->checkVersion()) {
+            Helper::errorColorize('Invalid configuration version loaded from:', $this->filePath);
+        }
+
+        if(empty($this->configs['blogs'])) {
+            Helper::errorColorize('Could not load blogs configuration from:', $this->filePath);
+        }
+    }
+
     /**
      * Load config from file
      */
     protected function loadConfigs()
     {
         $this->configs = $this->file->parse();
-
-        if (empty($this->configs)) {
-            Helper::errorColorize('Could not load configuration from:', $this->filePath);
-            return;
-        }
-
-        if(!$this->checkVersion()) {
-            Helper::errorColorize('Invalid configuration version loaded from:', $this->filePath);
-            return;
-        }
     }
 
     /**
