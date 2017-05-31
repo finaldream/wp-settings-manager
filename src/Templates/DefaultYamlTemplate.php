@@ -25,19 +25,29 @@ blogs:
 
   your-domain.com: 
 
-    # list of options as defined in the blog's wp_options table
-    wp_options: 
+    # template name and template_root
+    themes: 
       template: twentyseventeen
-      template_root: /wp-content/themes/twentyseventeen
 
     # represents only the enabled plugins per site. plugins not specified, will be disabled.
     plugins: 
-      - contact-form-7
+      contact-form-7: true
+      
+    # list of options as defined in the blog's wp_options table  
+    wp_options:
+      sample_option: true
 
   dev.your-domain.com:
+    
+    # allows to use another blog-config as a base ...
     extends: your-domain.com
-    wp_options: 
-      template_root: /var/www/html
+    
+    # override to disable any plugin
+    plugins:
+      contact-form-7: false
+      
+    wp_options:
+      secondary_sample_option: 'bar'
 YAML;
     }
 }
