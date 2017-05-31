@@ -25,7 +25,7 @@ blogs:
 
   your-domain.com: 
 
-    # list of options as defined in the blog's wp_options talbe
+    # list of options as defined in the blog's wp_options table
     wp_options: 
       template: twentyseventeen
       template_root: /wp-content/themes/twentyseventeen
