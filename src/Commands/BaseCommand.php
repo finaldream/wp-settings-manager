@@ -140,6 +140,6 @@ abstract class BaseCommand
      */
     protected function isPluginMatch($key, $plugin)
     {
-        return (strpos(plugin_basename($key), trim($plugin)) !== false);
+        return (trim(dirname($key)) === trim($plugin));
     }
 }
