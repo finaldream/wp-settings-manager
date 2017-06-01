@@ -33,20 +33,20 @@ SUBCOMMANDS
 
 Create new configuration file from template
 
-####`--force`
+#### `--force`
 Overwrites an existing configuration file, if it exists.
 
-####`--wp-config`
+#### `--wp-config`
 Relative path to store yaml configuration file
 
 ### `load`
 
 Load all configuration from current file and write into WP database
 
-####`--wp-config`
+#### `--wp-config`
 Relative path to load yaml configuration file
 
-####`--override-network-plugins=<boolean>`
+#### `--override-network-plugins=<boolean>`
 Use this to on/off overriding WordPress activated plugins, Default is `TRUE`
 
 ## Sample Config
