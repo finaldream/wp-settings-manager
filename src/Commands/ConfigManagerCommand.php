@@ -12,6 +12,8 @@ use ConfigManager\Core\File;
 use ConfigManager\Core\Helper;
 
 /**
+ * Automated load all configuration from .yaml file
+ *
  * Class ConfigManagerCommand
  * @package ConfigManager\Commands
  */
@@ -72,7 +74,7 @@ class ConfigManagerCommand extends BaseCommand
      * ## OPTIONS
      *
      * [--wp-config]
-     * : Relative path to store yaml configuration file
+     * : Relative path to load yaml configuration file
      *
      * ## EXAMPLES
      *
@@ -81,7 +83,7 @@ class ConfigManagerCommand extends BaseCommand
      * @param $args
      * @param $assoc_args
      *
-     * @synopsis [--wp-config=<file_path>] [--force] [--override-network-plugins=<boolean>]
+     * @synopsis [--wp-config=<file_path>] [--override-network-plugins=<boolean>]
      */
     function load($args, $assoc_args)
     {
