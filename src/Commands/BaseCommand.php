@@ -130,4 +130,16 @@ abstract class BaseCommand
     {
         return (!empty($this->configs['version'] && ($this->configs['version'] === static::$version)));
     }
+
+    /**
+     * Check if plugin match provided name
+     *
+     * @param string $key
+     * @param string $plugin
+     * @return bool
+     */
+    protected function isPluginMatch($key, $plugin)
+    {
+        return (strpos(plugin_basename($key), trim($plugin)) !== false);
+    }
 }

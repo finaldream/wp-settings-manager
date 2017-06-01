@@ -166,7 +166,7 @@ class ConfigManagerCommand extends BaseCommand
                 continue;
 
             foreach ($availablePlugins as $key => $data) {
-                if (strpos(plugin_basename($key), trim($plugin)) !== false) {
+                if ($this->isPluginMatch($key, $plugin)) {
                     $matches[] = $key;
                     continue 2;
                 }
