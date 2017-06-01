@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO: Add description here
+ * Main WP-Config-Manager commands
  *
  * @author Louis Thai <louis.thai@finaldream.de>
  * @since 29.05.2017
@@ -13,7 +13,7 @@ use ConfigManager\Core\Helper;
 
 /**
  * Class ConfigManagerCommand
- * @package ConfigManager
+ * @package ConfigManager\Commands
  */
 class ConfigManagerCommand extends BaseCommand
 {

@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO: Add description here
+ * Abstract command class
  *
  * @author Louis Thai <louis.thai@finaldream.de>
  * @since 29.05.2017
@@ -11,6 +11,10 @@ namespace ConfigManager\Commands;
 use ConfigManager\Core\File;
 use ConfigManager\Core\Helper;
 
+/**
+ * Class BaseCommand
+ * @package ConfigManager\Commands
+ */
 abstract class BaseCommand
 {
     /**
@@ -91,6 +95,9 @@ abstract class BaseCommand
         return (!empty($this->flags[$key])) ? $this->flags[$key] : $default;
     }
 
+    /**
+     * Validate loaded config
+     */
     protected function validateConfigs()
     {
         if (empty($this->configs)) {

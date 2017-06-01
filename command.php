@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO: Add description here
+ * WP-CLI Package bootstrap
  *
  * @author Louis Thai <louis.thai@finaldream.de>
  * @since 26.05.2017

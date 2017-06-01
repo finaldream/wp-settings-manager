@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO: Add description here
+ * Default config manager File class
  *
  * @author Louis Thai <louis.thai@finaldream.de>
  * @since 29.05.2017
