@@ -1,0 +1,21 @@
+{
+  "name": "finaldream/wp-config-manager",
+  "description": "WP-CLI command to manage WordPress Plugin and Theme",
+  "type": "wp-cli-package",
+  "homepage": "https://github.com/finaldream/wp-settings-manager",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Louis Thai",
+      "email": "louis.thai@finaldream.de"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "wp-cli/wp-cli": "*"
+  },
+  "autoload": {
+    "psr-4": { "ConfigManager\\": "src/" },
+    "files": ["command.php"]
+  }
+}
